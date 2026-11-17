@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div>
+      <h1>TOKEN RADAR</h1>
+      <p class="tagline">Pre-token protocols, ranked by the token they might one day issue.</p>
+    </div>
+  </div>
+  <p class="meta" id="meta-line">Loading the sealed snapshot&hellip;</p>
+</header>
+
+<section class="stats" id="stats" aria-label="Board statistics"></section>
+
+<section class="controls" aria-label="Filter and sort">
+  <label class="ctl search">Search
+    <input id="q" type="search" placeholder="Protocol name or slug&hellip;" autocomplete="off">
+  </label>
+  <label class="ctl">Category
+    <select id="cat"><option value="">All categories</option></select>
+  </label>
+  <label class="ctl">Chain
+    <select id="chain"><option value="">All chains</option></select>
+  </label>
+  <label class="ctl">Sort by
+    <select id="sort">
+      <option value="rank">Rank (implied value)</option>
+      <option value="tvl">TVL</option>
+      <option value="change">7-day change</option>
+      <option value="age">Age (oldest first)</option>
+      <option value="name">Name A&ndash;Z</option>
+    </select>
+  </label>
+  <label class="ctl check"><input id="watchlist" type="checkbox"> Watchlist only</label>
+  <p class="count" id="count"></p>
+</section>
+
+<section class="detail" id="detail" hidden aria-label="Protocol detail"></section>
+
+<main>
+  <table id="board">
+    <thead>
+      <tr>
+        <th class="num">Rank</th>
+        <th>Protocol</th>
+        <th>Category</th>
+        <th>Chains</th>
+        <th class="num">TVL</th>
+        <th class="num">7d</th>
+        <th class="num">Implied value</th>
+        <th class="num">Age</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="empty" id="empty" hidden>No protocol matches this filter.</p>
+</main>
+
+<footer>
+  <h2>How the implied value is built</h2>
+  <p id="method"></p>
+  <p class="disclaimer">Implied values are this board&rsquo;s own claim, worked out from the snapshot&rsquo;s
+  figures alone &mdash; TVL, seven-day growth, how long the protocol has run with no token, and whether a
+  token launch is plausible for its kind. They are not a prediction of whether or when a token is issued.
+  A protocol is listed as pre-token because its DefiLlama record carries no token; that record is not
+  proof that no token exists.</p>
+  <p class="source" id="source-line"></p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
